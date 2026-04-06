@@ -31,7 +31,6 @@ class HelloWorldAnonymousClasses {
 
         val cleanedNames = names
             .map { it.trim().replace(Regex("\\s+"), " ") }
-            .filter { it.isNotEmpty() }
 
         cleanedNames.forEach { name ->
             greetings.forEach {
