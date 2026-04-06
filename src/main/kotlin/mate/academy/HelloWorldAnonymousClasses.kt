@@ -11,25 +11,31 @@ class HelloWorldAnonymousClasses {
         val result = mutableListOf<String>()
 
         val englishGreeting = object : HelloWorldGreeting {
-            override fun greet(): String = "Hello world"
-            override fun greetSomeone(someone: String): String = "Hello $someone"
+            override fun greet() = "Hello world"
+            override fun greetSomeone(someone: String) = "Hello $someone"
         }
 
         val frenchGreeting = object : HelloWorldGreeting {
-            override fun greet(): String = "Salut tout le monde"
-            override fun greetSomeone(someone: String): String = "Salut $someone"
+            override fun greet() = "Salut tout le monde"
+            override fun greetSomeone(someone: String) = "Salut $someone"
         }
 
         val spanishGreeting = object : HelloWorldGreeting {
-            override fun greet(): String = "Hola, mundo"
-            override fun greetSomeone(someone: String): String = "Hola, $someone"
+            override fun greet() = "Hola, mundo"
+            override fun greetSomeone(someone: String) = "Hola, $someone"
         }
 
         val greetings = listOf(englishGreeting, frenchGreeting, spanishGreeting)
 
+        for (greeting in greetings) {
+            result.add(greeting.greet())
+        }
+
         for (name in names) {
+            val cleanName = name.trim()
+
             for (greeting in greetings) {
-                result.add(greeting.greetSomeone(name))
+                result.add(greeting.greetSomeone(cleanName))
             }
         }
 
