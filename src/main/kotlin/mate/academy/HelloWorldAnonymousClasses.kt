@@ -27,12 +27,12 @@ class HelloWorldAnonymousClasses {
 
         val greetings = listOf(englishGreeting, frenchGreeting, spanishGreeting)
 
-        for (greeting in greetings) {
-            result.add(greeting.greet())
-        }
+        greetings.forEach { result.add(it.greet()) }
 
         for (name in names) {
             val cleanName = name.trim()
+
+            if (cleanName.isEmpty()) continue
 
             for (greeting in greetings) {
                 result.add(greeting.greetSomeone(cleanName))
