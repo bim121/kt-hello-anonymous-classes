@@ -32,5 +32,7 @@ class HelloWorldAnonymousClasses {
                 result.add(greeting.greetSomeone(name))
             }
         }
+
+        return result
     }
 }
