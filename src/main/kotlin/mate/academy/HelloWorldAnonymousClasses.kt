@@ -29,14 +29,12 @@ class HelloWorldAnonymousClasses {
 
         greetings.forEach { result.add(it.greet()) }
 
-        for (name in names) {
-            val cleanName = name.trim()
+        val cleanedNames = names
+            .map { it.trim() }
+            .filter { it.isNotEmpty() }
 
-            if (cleanName.isEmpty()) continue
-
-            for (greeting in greetings) {
-                result.add(greeting.greetSomeone(cleanName))
-            }
+        cleanedNames.forEach { name ->
+            greetings.forEach { result.add(it.greetSomeone(name)) }
         }
 
         return result
